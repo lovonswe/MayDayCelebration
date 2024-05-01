@@ -20,7 +20,7 @@ public class Clinic {
     private Long id;
     private String name;
     private String branch;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     @JsonBackReference
     private Address address;

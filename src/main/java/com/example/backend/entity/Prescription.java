@@ -18,15 +18,15 @@ public class Prescription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "doctor_id")
     @JsonBackReference
     private User doctor; //doctor
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_id")
     @JsonBackReference
     private User patient; //patient
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "clinic_id")
     @JsonBackReference
     private Clinic clinic;
@@ -37,7 +37,7 @@ public class Prescription {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medication_id")
     private Medication medication;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Test> tests;
     private List<String> specialInstruction;

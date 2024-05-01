@@ -24,7 +24,7 @@ public class User {
     private LocalDate dateOfBirth;
     private String gender;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonManagedReference
     private Address address;
     private List<String> medicalConditions;
     private String bloodGroup;
@@ -38,7 +38,6 @@ public class User {
     private List<Role> roles;
     private String profileImagePath;
     private String password;
-
     private List<String> speciality;
     private String bmdcRegNo;
     private String verificationCode;
@@ -51,4 +50,10 @@ public class User {
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Prescription> prescriptionsForPatient;
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Appointment> appointmentsForPatient;
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Appointment> appointmentsToDoctor;
 }

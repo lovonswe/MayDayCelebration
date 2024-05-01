@@ -18,7 +18,7 @@ public class Test {
     private Long id;
     private String name;
     private String sample;
-    @ManyToMany(mappedBy = "tests")
+    @ManyToMany(mappedBy = "tests", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Prescription> prescriptions;
 }

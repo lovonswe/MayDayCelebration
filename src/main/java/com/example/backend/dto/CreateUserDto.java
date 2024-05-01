@@ -25,4 +25,6 @@ public class CreateUserDto {
     private String Country;
     private String district;
     private String area;
+    private String road;
+    private String house;
 }
